@@ -6,6 +6,8 @@ import 'dart:io';
 import 'package:url_launcher/url_launcher.dart';
 
 class QrScannerPage extends StatefulWidget {
+  const QrScannerPage({super.key});
+
   @override
   State<StatefulWidget> createState() => _QRScannerPageState();
 }
