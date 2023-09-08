@@ -2,8 +2,7 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:camera_checkin/preview_page.dart';
-import 'package:qrscan/qrscan.dart' as scanner;
-import 'package:url_launcher/url_launcher.dart';
+import 'package:camera_checkin/qr_scanner_page.dart';
 
 class CameraPage extends StatefulWidget {
   const CameraPage({Key? key, required this.cameras}) : super(key: key);
@@ -19,14 +18,14 @@ class _CameraPageState extends State<CameraPage> {
   bool _isRearCameraSelected = true;
   bool _isFlashOn = false;
 
-  Future _qrScanner() async {
-    String? qrdata = await scanner.scan();
-    Uri linkUrl = Uri.parse(qrdata!);
-    print(qrdata);
-    print(linkUrl);
+  // Future _qrScanner() async {
+  //   String? qrdata = await scanner.scan();
+  //   Uri linkUrl = Uri.parse(qrdata!);
+  //   print(qrdata);
+  //   print(linkUrl);
 
-    await launchUrl(linkUrl);
-  }
+  //   await launchUrl(linkUrl);
+  // }
 
   @override
   void dispose() {
@@ -148,7 +147,12 @@ class _CameraPageState extends State<CameraPage> {
                   icon: const Icon(CupertinoIcons.qrcode_viewfinder,
                       color: Colors.white),
                   onPressed: () {
-                    _qrScanner();
+                    // _qrScanner();
+
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => QrScannerPage()));
                   },
                 )
               ]),
