@@ -18,15 +18,6 @@ class _CameraPageState extends State<CameraPage> {
   bool _isRearCameraSelected = true;
   bool _isFlashOn = false;
 
-  // Future _qrScanner() async {
-  //   String? qrdata = await scanner.scan();
-  //   Uri linkUrl = Uri.parse(qrdata!);
-  //   print(qrdata);
-  //   print(linkUrl);
-
-  //   await launchUrl(linkUrl);
-  // }
-
   @override
   void dispose() {
     _cameraController.dispose();
@@ -136,10 +127,7 @@ class _CameraPageState extends State<CameraPage> {
             alignment: Alignment.topCenter,
             child: Container(
               height: MediaQuery.of(context).size.height * 0.05,
-              decoration: BoxDecoration(
-                  // borderRadius:
-                  //     BorderRadius.vertical(bottom: Radius.circular(15)),
-                  color: Colors.black.withOpacity(0.3)),
+              decoration: BoxDecoration(color: Colors.black.withOpacity(0.3)),
               child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
                 IconButton(
                   padding: EdgeInsets.zero,
@@ -147,8 +135,6 @@ class _CameraPageState extends State<CameraPage> {
                   icon: const Icon(CupertinoIcons.qrcode_viewfinder,
                       color: Colors.white),
                   onPressed: () {
-                    // _qrScanner();
-
                     Navigator.push(
                         context,
                         MaterialPageRoute(

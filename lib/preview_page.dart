@@ -26,15 +26,3 @@ class PreviewPage extends StatelessWidget {
     );
   }
 }
-
-//       Row(
-//             children: [
-//               Text(picture.name),
-//               ElevatedButton(
-//                 onPressed: () {
-//                   // further implementation
-//                 },
-//                 child: const Text("Check-in"),
-//               )
-//             ],
-//           )
