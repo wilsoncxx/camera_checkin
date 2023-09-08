@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:camera_checkin/preview_page.dart';
 import 'package:qrscan/qrscan.dart' as scanner;
+import 'package:url_launcher/url_launcher.dart';
 
 class CameraPage extends StatefulWidget {
   const CameraPage({Key? key, required this.cameras}) : super(key: key);
@@ -20,7 +21,11 @@ class _CameraPageState extends State<CameraPage> {
 
   Future _qrScanner() async {
     String? qrdata = await scanner.scan();
-    debugPrint(qrdata);
+    Uri linkUrl = Uri.parse(qrdata!);
+    print(qrdata);
+    print(linkUrl);
+
+    await launchUrl(linkUrl);
   }
 
   @override
